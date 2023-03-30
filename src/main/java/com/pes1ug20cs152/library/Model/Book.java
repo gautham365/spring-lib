@@ -1,48 +1,64 @@
 package com.pes1ug20cs152.library.Model;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
 
-import lombok.AllArgsConstructor;
-import lombok.Builder;
-import lombok.Data;
-import lombok.NoArgsConstructor;
+import jakarta.persistence.*;
+
 
 @Entity
-@Data
-@NoArgsConstructor
-@AllArgsConstructor
-@Builder
+@Table(name = "books")
 public class Book {
-    @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
-    private Long id;
-    private String title;
-    private String author;
 
-    public Long getId() {
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private Long id;
+    public long getId() {
         return id;
     }
-
-    public void setId(Long id) {
+    public void setId(long id) {
         this.id = id;
     }
 
-    public String getTitle() {
-        return title;
+    @Column(name = "name", length = 100, nullable = false)
+    private String name;
+    public String getName() {
+        return name;
+    }
+    public void setName(String name) {
+        this.name = name;
     }
 
-    public void setTitle(String title) {
-        this.title = title;
-    }
+//    @Column(name = "serialName", length = 50, nullable = false)
+//    private String serialName;
+//    public String getSerialName() {
+//        return serialName;
+//    }
+//    public void setSerialName(String firstName) {
+//        this.serialName = serialName;
+//    }
 
+    @Column(name = "author", length = 250, nullable = false)
+    private String author;
     public String getAuthor() {
         return author;
     }
-
     public void setAuthor(String author) {
         this.author = author;
     }
+
+//    @Column(name = "publication", length = 50, nullable = false)
+//    private String publication;
+
+    public Book(){
+
+    }
+
+    public Book(String name, String author) {
+        this.name = name;
+//        this.serialName = serialName;
+        this.author = author;
+    }
+
+
+
+
 }

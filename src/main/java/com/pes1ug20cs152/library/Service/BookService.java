@@ -1,18 +1,21 @@
 package com.pes1ug20cs152.library.Service;
 
-import java.util.List;
 import com.pes1ug20cs152.library.Model.Book;
 
-public interface BookService {
-    
-    List<Book> getAllBooks();
-    
-    // Book getBookById(long id);
-    
-    Book createBook(Book book);
-    
-    // Book updateBook(long id, Book book);
+import java.util.List;
 
-    // void deleteBookById(long id);
-    
+public interface BookService {
+
+    public List<Book> findAllBooks();
+
+    public List<Book> searchBooks(String keyword);
+
+    public Book findBookById(Long id);
+
+    public void createBook(Book book);
+
+//    public void updateBook(Book book);
+
+//    public void deleteBook(Long id);
+
 }
